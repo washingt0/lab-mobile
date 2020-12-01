@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-/// main-dashboard page
-class MainPage extends StatelessWidget {
+/// display user-related content
+class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
-        child: const Text('Main'),
+        child: const Text('Profile'),
       );
 }

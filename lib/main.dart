@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'pages/login/login.dart';
-import 'pages/main/main.dart';
+import 'pages/router.dart';
 import 'services/auth/provider.dart';
 import 'services/auth/session/model.dart';
 import 'theme.dart';
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
               if (snapshot.data == null || snapshot.data.sessionID == null) {
                 return LoginPage();
               } else {
-                return MainPage();
+                return PageRouter();
               }
             }
             return Container();

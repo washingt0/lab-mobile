@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../services/auth/login/service.dart';
-import '../main/main.dart';
+import '../router.dart';
 
 /// login page
 class LoginPage extends StatefulWidget {
@@ -16,7 +16,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) => Scaffold(
         body: Center(
           child: Card(
+            borderOnForeground: true,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[_buildForm(context, _formKey)],
             ),
           ),
@@ -32,7 +34,9 @@ Widget _buildForm(BuildContext context, GlobalKey<FormState> key) {
     child: Form(
       key: key,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
+          const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
           TextFormField(
             decoration: const InputDecoration(labelText: 'Username'),
             validator: (String value) {
@@ -46,7 +50,9 @@ Widget _buildForm(BuildContext context, GlobalKey<FormState> key) {
               serv.username = value;
             },
           ),
+          const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
           TextFormField(
+            obscureText: true,
             decoration: const InputDecoration(labelText: 'Password'),
             validator: (String value) {
               if (value == null || value.length < 8) {
@@ -59,6 +65,7 @@ Widget _buildForm(BuildContext context, GlobalKey<FormState> key) {
               serv.password = value;
             },
           ),
+          const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
           RaisedButton(
             onPressed: () {
               if (!key.currentState.validate()) {
@@ -74,7 +81,7 @@ Widget _buildForm(BuildContext context, GlobalKey<FormState> key) {
                 Navigator.push(
                     context,
                     MaterialPageRoute<dynamic>(
-                        builder: (BuildContext context) => MainPage()));
+                        builder: (BuildContext context) => PageRouter()));
               }).catchError((Object e) {
                 showDialog(
                     context: context,
@@ -82,6 +89,7 @@ Widget _buildForm(BuildContext context, GlobalKey<FormState> key) {
                         title: Text('Não foi possivel fazer o login')));
               });
             },
+            child: const Text('Login'),
           )
         ],
       ),

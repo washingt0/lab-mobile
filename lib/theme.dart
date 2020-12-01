@@ -10,8 +10,14 @@ class Pallete {
   /// contrast color
   static const Color contrast = Color(0xFFFFFFFF);
 
+  /// contrast color
+  static const Color subContrast = Color(0xFFA6A3C4);
+
   /// background color
   static const Color background = Color(0xFF030306);
+
+  /// background color
+  static const Color cardBackground = Color(0xFF212130);
 
   /// card-foregroud color
   static const Color foreground = Color(0xFF2D1D4D);
@@ -30,6 +36,8 @@ class Pallete {
 
   /// error color
   static const Color error = Color(0xFFFF0000);
+
+  // static const Color primaryVariant2 = Color(0xFF6054B6);
 }
 
 /// defines the app colorscheme
@@ -52,5 +60,22 @@ const ColorScheme appColorScheme = ColorScheme(
 /// default theme for application
 final ThemeData appTheme = ThemeData(
   colorScheme: appColorScheme,
+  accentColor: Pallete.secondary,
+  disabledColor: Pallete.cardBackground,
+  backgroundColor: Pallete.background,
+  buttonColor: Pallete.secondary,
+  scaffoldBackgroundColor: Pallete.background,
   visualDensity: VisualDensity.adaptivePlatformDensity,
+  inputDecorationTheme: const InputDecorationTheme(
+    labelStyle: TextStyle(
+      color: Pallete.text,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+  cardTheme: CardTheme(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+    color: Pallete.cardBackground,
+  ),
 );
