@@ -18,11 +18,11 @@ class Session {
       _$SessionFromJson(json);
 
   /// unique session's identifier
-  @JsonKey(name: 'session_id')
+  @JsonKey(name: 'jti')
   String sessionID;
 
   /// unique user's identifier
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'sub')
   String userID;
 
   /// user name
